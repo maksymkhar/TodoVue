@@ -8,11 +8,7 @@ new Vue({
 
     data: {
 
-        tasks: [
-
-            { body: 'Go to the store', completed: false}
-        ],
-
+        tasks: [ ],
         newTask: ''
 
     },
@@ -86,6 +82,13 @@ new Vue({
         {
             this.tasks.forEach(function(task) {
                 task.completed = true;
+            });
+        },
+        clearCompleted: function ()
+        {
+            this.tasks = this.tasks.filter(function(task)
+            {
+                return ! task.completed;
             });
         }
 
