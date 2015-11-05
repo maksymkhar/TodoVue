@@ -17,6 +17,22 @@ new Vue({
 
     },
 
+    computed: {
+
+        completions: function()
+        {
+            return this.tasks.filter(function (task) {
+                return task.completed;
+            });
+        },
+        remaining: function ()
+        {
+            return this.tasks.filter(function (task) {
+                return ! task.completed;
+            });
+        }
+    },
+
     filters: {
 
         inProcess: function(tasks)
@@ -33,6 +49,8 @@ new Vue({
         addTask : function (e)
         {
             e.preventDefault();
+
+            if ( ! this.newTask) return;
 
             this.tasks.push({
 
@@ -60,9 +78,15 @@ new Vue({
 
             this.$$.newTask.focus();
         },
-        completeTask: function(task)
+        toggleTaskCompletion: function(task)
         {
-            task.completed = true;
+            task.completed = ! task.completed;
+        },
+        completeAll: function ()
+        {
+            this.tasks.forEach(function(task) {
+                task.completed = true;
+            });
         }
 
     }
