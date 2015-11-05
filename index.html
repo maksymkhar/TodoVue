@@ -11,28 +11,21 @@
 <body>
 
     <div class="container">
-
         <div id="tasks">
 
             <div v-show="remaining.length">
 
                 <h1>Tasks ({{ remaining.length }})</h1>
 
-
                 <ol class="list-group">
-
-                    <li v-repeat="task: tasks | inProcess"
-                        class="list-group-item">
-
+                    <li v-repeat="task: tasks | inProcess" class="list-group-item">
 
                         <span v-on="dblclick: editTask(task)">{{task.body}}</span>
 
                         <button v-on="click: removeTask(task)">&#10007;</button>
                         <button v-on="click: toggleTaskCompletion(task)">&#10004;</button>
 
-
                     </li>
-
                 </ol>
 
             </div>
@@ -50,7 +43,6 @@
                 <button class="btn btn-primary">Add Task</button>
                 <button v-on="click: completeAll" class="btn btn-default">Mark All As Completed?</button>
 
-
             </form>
 
             <div v-if="completions.length">
@@ -59,8 +51,7 @@
 
                 <ol class="list-group">
 
-                    <li class="list-group-item"
-                        v-repeat="task: tasks | filterBy true in completed">
+                    <li class="list-group-item" v-repeat="task: tasks | filterBy true in completed">
 
                         {{task.body}}
 
@@ -79,9 +70,7 @@
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.min.js"></script-->
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script>
-
     <script src="app.js"></script>
-
 
 </body>
 </html>

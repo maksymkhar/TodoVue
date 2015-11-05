@@ -62,16 +62,8 @@ new Vue({
         },
         editTask: function(task)
         {
-            //remove task
-
             this.removeTask(task);
-
-            //update new task
-
             this.newTask = task.body;
-
-            //focus new task inoput
-
             this.$$.newTask.focus();
         },
         toggleTaskCompletion: function(task)
@@ -80,7 +72,8 @@ new Vue({
         },
         completeAll: function ()
         {
-            this.tasks.forEach(function(task) {
+            this.tasks.forEach(function(task)
+            {
                 task.completed = true;
             });
         },
@@ -91,7 +84,6 @@ new Vue({
                 return ! task.completed;
             });
         }
-
     }
 
 })
