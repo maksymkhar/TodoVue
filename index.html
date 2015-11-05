@@ -5,6 +5,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
 
 </head>
 <body>
@@ -13,9 +14,42 @@
 
         <div id="tasks">
 
-        {{ heading }}
+            <div>
 
-        <input v-model="heading">
+                <h1>Tasks ({{ tasks.length }})</h1>
+
+
+                <ol class="list-group">
+
+                    <li v-repeat="task: tasks"
+                        class="list-group-item">
+
+
+                        <span v-on="dblclick: editTask(task)">{{task.body}}</span>
+
+                        <button v-on="click: removeTask(task)">&#10007;</button>
+
+                    </li>
+
+                </ol>
+
+            </div>
+
+            <form v-on="submit: addTask">
+
+                <div class="form-group">
+
+                    <input v-model="newTask"
+                           v-el="newTask"
+                           class="form-control"
+                           placeholder="I need too..">
+                </div>
+
+                <button class="btn btn-primary">Add Task</button>
+
+
+
+            </form>
 
         </div>
 
@@ -23,7 +57,11 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.min.js"></script>
+
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.min.js"></script-->
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script>
+
     <script src="app.js"></script>
 
 
