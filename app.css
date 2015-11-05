@@ -1,3 +1,8 @@
+#tasks {
+
+    amrgin:2em 0;
+}
+
 li button {
 
     font-weight: bold;
@@ -6,4 +11,6 @@ li button {
     color: red;
     padding: 0;
     float: right;
+
+    margin-left: 10px;
 }

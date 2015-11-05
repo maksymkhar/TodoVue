@@ -21,13 +21,15 @@
 
                 <ol class="list-group">
 
-                    <li v-repeat="task: tasks"
+                    <li v-repeat="task: tasks | inProcess"
                         class="list-group-item">
 
 
                         <span v-on="dblclick: editTask(task)">{{task.body}}</span>
 
                         <button v-on="click: removeTask(task)">&#10007;</button>
+                        <button v-on="click: completeTask(task)">&#10004;</button>
+
 
                     </li>
 
